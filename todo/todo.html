@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html ng-app>
+<head>
+  <script src="js/angular.min.js"></script>
+  <script src="js/underscore.min.js"></script>
+  <script src="js/todo.js"></script>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/todo.css">
+</head>
+<body>
+  <div ng-controller="TodoCtrl">
+    <h2>Total todo: {{getTotalTodos()}}</h2>
+    <ul class="unstyled" >
+      <li ng-repeat="todo in todos">
+        <input type="checkbox" ng-model="todo.done"/>
+        <span class="done-{{todo.done}}">{{todo.text}}</span>
+      </li>
+    </ul>
+    <form class="form-horizontal">
+      <input type="text" ng-model="formTodoText" required>
+      <button class="btn" ng-click="addTodo()"><i class="icon-plus"></i>Add</button>
+      <div>
+        <button class="btn" ng-click="clearCompleted()"><i class="icon-trash"></i>Clear Completed</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
